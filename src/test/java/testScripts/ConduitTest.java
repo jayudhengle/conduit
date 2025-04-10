@@ -6,22 +6,23 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import base.ConduitTestBase;
+import pages.EditArticePage;
 import pages.LoginPage;
+import pages.NewArticelTest;
 
 public class ConduitTest {
 	LoginPage loginPage;
 	WebDriver driver;
-//	ProductListPage productList;
-//	CartPage cartPage;
-//	CheckoutPage checkoutPage;
+	NewArticelTest newArticle;
+	EditArticePage editArticle;
+
 
 	public ConduitTest() {
 		ConduitTestBase.initDriver();
 		driver = ConduitTestBase.getDriver();
 		loginPage = new LoginPage(driver);
-//		productList = new ProductListPage(driver);
-//		cartPage = new CartPage(driver);
-//		checkoutPage = new CheckoutPage(driver);
+		newArticle = new NewArticelTest(driver);
+		editArticle = new EditArticePage(driver);
 	}
 
 	@BeforeTest
@@ -31,24 +32,16 @@ public class ConduitTest {
 	}
 
 	@Test(priority = 1)
-	public void porductTest() {
-		System.out.println("Helo");
+	public void newArticleTest() {
+		newArticle.publishArticle("2Test", "Test3", "Test4", "Test5");
+	}
+	
+	@Test(priority = 2)
+	public void editArticleTest() {
+		editArticle.editArticle("Test31", "Test41", "Test51");
 	}
 
-//	@Test(priority = 2)
-//	public void verfyItemsTest() {
-//		cartPage.verifyItems();
-//	}
-//
-//	@Test(priority = 3)
-//	public void checkoutItemsTest() {
-//		cartPage.clickCheckoutBtn();
-//	}
-//
-//	@Test(priority = 4)
-//	public void checkoutFormTest() {
-//		checkoutPage.enterCustomerDetails("abc", "pqr", "11011");
-//	}
+
 
 	@AfterTest
 	public void tearDown() {

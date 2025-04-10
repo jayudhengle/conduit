@@ -13,7 +13,7 @@ public class LoginPage
 	@FindBy(name="password")
 	WebElement password;
 	
-	@FindBy(css =  "btn.btn-lg")
+	@FindBy(css =  "button.btn.btn-lg.btn-primary.pull-xs-right")
 	WebElement loginBtn;
 	
 	

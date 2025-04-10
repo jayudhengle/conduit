@@ -5,7 +5,7 @@
     <classes>
       <class name="testScripts.ConduitTest">
         <methods>
-          <include name="porductTest"/>
+          <include name="newArticleTest"/>
           <include name="setUp"/>
           <include name="tearDown"/>
         </methods>
