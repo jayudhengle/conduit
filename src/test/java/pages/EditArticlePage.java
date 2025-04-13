@@ -5,10 +5,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class EditArticePage {
+public class EditArticlePage {
 	
 	@FindBy(xpath="(//a[contains(text(),' Edit Article')])[1]")
-	WebElement editArtickeLnk;
+	WebElement editArticleLnk;
 	
 	@FindBy(name = "title")
 	WebElement articleTitle;
@@ -25,15 +25,17 @@ public class EditArticePage {
 	@FindBy(css = "button.btn.btn-lg.pull-xs-right.btn-primary")
 	WebElement publishArticleBtn;
 	
-	public EditArticePage(WebDriver driver)
+	public EditArticlePage(WebDriver driver)
 	{
 		PageFactory.initElements(driver, this);
 	}
 	
 	
-	public void editArticle(String descriptionTxt, String bodyTxt, String tagsText)
+	public void editArticle(String articleTitleTxt, String descriptionTxt, String bodyTxt, String tagsText)
 	{
-		editArtickeLnk.click();
+		editArticleLnk.click();
+		articleTitle.clear();
+		articleTitle.sendKeys(articleTitleTxt);
 		articleDesc.sendKeys(descriptionTxt);
 		articleBody.sendKeys(bodyTxt);
 		articleTags.sendKeys(tagsText);
